@@ -1,4 +1,4 @@
-[0m[[0minfo[0m] [0mUpdating {file:/home/heroku/fredjean/kafka-log-consumer/project/}kafka-log-consumer-build...[0m
+[0m[[0minfo[0m] [0mUpdating {file:/home/syme/kafka-log-consumer/project/}kafka-log-consumer-build...[0m
 [0m[[0mdebug[0m] [0m:: resolving dependencies :: default#kafka-log-consumer-build;0.1-SNAPSHOT[0m
 [0m[[0mdebug[0m] [0m	confs: [compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool][0m
 [0m[[0mdebug[0m] [0m	validate = true[0m
@@ -18,7 +18,7 @@
 [0m[[0mdebug[0m] [0m	sbt-plugin-releases: downloading http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.eed3si9n/sbt-assembly/scala_2.10/sbt_0.13/0.10.1/ivys/ivy.xml[0m
 [0m[[0mdebug[0m] [0m	sbt-plugin-releases: downloading http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.eed3si9n/sbt-assembly/scala_2.10/sbt_0.13/0.10.1/ivys/ivy.xml.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.eed3si9n/sbt-assembly/scala_2.10/sbt_0.13/0.10.1/ivys/ivy.xml[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] com.eed3si9n#sbt-assembly;0.10.1!ivy.xml(ivy.original) (888ms)[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] com.eed3si9n#sbt-assembly;0.10.1!ivy.xml(ivy.original) (850ms)[0m
 [0m[[0mdebug[0m] [0m	found com.eed3si9n#sbt-assembly;0.10.1 in sbt-plugin-releases[0m
 [0m[[0mdebug[0m] [0mresolving dependencies for configuration 'runtime'[0m
 [0m[[0mdebug[0m] [0m== resolving dependencies for default#kafka-log-consumer-build;0.1-SNAPSHOT [runtime][0m
@@ -33,7 +33,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies for default#kafka-log-consumer-build;0.1-SNAPSHOT [provided][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies default#kafka-log-consumer-build;0.1-SNAPSHOT->org.scala-lang#scala-library;2.10.3 [provided->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.10.3 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@217c40eb[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@788001c3[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#scala-library;2.10.3[0m
 [0m[[0mdebug[0m] [0m	typesafe-ivy-releases: revision in cache: org.scala-lang#scala-library;2.10.3[0m
 [0m[[0mdebug[0m] [0m	found org.scala-lang#scala-library;2.10.3 in sbt-chain[0m
@@ -1288,7 +1288,7 @@
 [0m[[0mdebug[0m] [0m	sbt-plugin-releases: downloading http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.eed3si9n/sbt-assembly/scala_2.10/sbt_0.13/0.10.1/jars/sbt-assembly.jar[0m
 [0m[[0mdebug[0m] [0m	sbt-plugin-releases: downloading http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.eed3si9n/sbt-assembly/scala_2.10/sbt_0.13/0.10.1/jars/sbt-assembly.jar.sha1[0m
 [0m[[0mdebug[0m] [0msha1 OK for http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.eed3si9n/sbt-assembly/scala_2.10/sbt_0.13/0.10.1/jars/sbt-assembly.jar[0m
-[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.eed3si9n#sbt-assembly;0.10.1!sbt-assembly.jar (1960ms)[0m
+[0m[[0minfo[0m] [0m	[SUCCESSFUL ] com.eed3si9n#sbt-assembly;0.10.1!sbt-assembly.jar (1457ms)[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scala-library;2.10.3!scala-library.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#sbt;0.13.2!sbt.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#main;0.13.2!main.jar[0m
@@ -1336,19 +1336,19 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.2!apply-macro.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#jline;2.10.3!jline.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 4221ms :: artifacts dl 2000ms[0m
-[0m[[0mdebug[0m] [0m	report for default#kafka-log-consumer-build;0.1-SNAPSHOT compile produced in /home/heroku/fredjean/kafka-log-consumer/project/target/resolution-cache/reports/default-kafka-log-consumer-build-compile.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#kafka-log-consumer-build;0.1-SNAPSHOT runtime produced in /home/heroku/fredjean/kafka-log-consumer/project/target/resolution-cache/reports/default-kafka-log-consumer-build-runtime.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#kafka-log-consumer-build;0.1-SNAPSHOT test produced in /home/heroku/fredjean/kafka-log-consumer/project/target/resolution-cache/reports/default-kafka-log-consumer-build-test.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#kafka-log-consumer-build;0.1-SNAPSHOT provided produced in /home/heroku/fredjean/kafka-log-consumer/project/target/resolution-cache/reports/default-kafka-log-consumer-build-provided.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#kafka-log-consumer-build;0.1-SNAPSHOT optional produced in /home/heroku/fredjean/kafka-log-consumer/project/target/resolution-cache/reports/default-kafka-log-consumer-build-optional.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#kafka-log-consumer-build;0.1-SNAPSHOT compile-internal produced in /home/heroku/fredjean/kafka-log-consumer/project/target/resolution-cache/reports/default-kafka-log-consumer-build-compile-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#kafka-log-consumer-build;0.1-SNAPSHOT runtime-internal produced in /home/heroku/fredjean/kafka-log-consumer/project/target/resolution-cache/reports/default-kafka-log-consumer-build-runtime-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#kafka-log-consumer-build;0.1-SNAPSHOT test-internal produced in /home/heroku/fredjean/kafka-log-consumer/project/target/resolution-cache/reports/default-kafka-log-consumer-build-test-internal.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#kafka-log-consumer-build;0.1-SNAPSHOT plugin produced in /home/heroku/fredjean/kafka-log-consumer/project/target/resolution-cache/reports/default-kafka-log-consumer-build-plugin.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#kafka-log-consumer-build;0.1-SNAPSHOT sources produced in /home/heroku/fredjean/kafka-log-consumer/project/target/resolution-cache/reports/default-kafka-log-consumer-build-sources.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#kafka-log-consumer-build;0.1-SNAPSHOT docs produced in /home/heroku/fredjean/kafka-log-consumer/project/target/resolution-cache/reports/default-kafka-log-consumer-build-docs.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#kafka-log-consumer-build;0.1-SNAPSHOT pom produced in /home/heroku/fredjean/kafka-log-consumer/project/target/resolution-cache/reports/default-kafka-log-consumer-build-pom.xml[0m
-[0m[[0mdebug[0m] [0m	report for default#kafka-log-consumer-build;0.1-SNAPSHOT scala-tool produced in /home/heroku/fredjean/kafka-log-consumer/project/target/resolution-cache/reports/default-kafka-log-consumer-build-scala-tool.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (4221ms resolve - 2000ms download)[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 10421ms :: artifacts dl 1607ms[0m
+[0m[[0mdebug[0m] [0m	report for default#kafka-log-consumer-build;0.1-SNAPSHOT compile produced in /home/syme/kafka-log-consumer/project/target/resolution-cache/reports/default-kafka-log-consumer-build-compile.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#kafka-log-consumer-build;0.1-SNAPSHOT runtime produced in /home/syme/kafka-log-consumer/project/target/resolution-cache/reports/default-kafka-log-consumer-build-runtime.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#kafka-log-consumer-build;0.1-SNAPSHOT test produced in /home/syme/kafka-log-consumer/project/target/resolution-cache/reports/default-kafka-log-consumer-build-test.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#kafka-log-consumer-build;0.1-SNAPSHOT provided produced in /home/syme/kafka-log-consumer/project/target/resolution-cache/reports/default-kafka-log-consumer-build-provided.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#kafka-log-consumer-build;0.1-SNAPSHOT optional produced in /home/syme/kafka-log-consumer/project/target/resolution-cache/reports/default-kafka-log-consumer-build-optional.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#kafka-log-consumer-build;0.1-SNAPSHOT compile-internal produced in /home/syme/kafka-log-consumer/project/target/resolution-cache/reports/default-kafka-log-consumer-build-compile-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#kafka-log-consumer-build;0.1-SNAPSHOT runtime-internal produced in /home/syme/kafka-log-consumer/project/target/resolution-cache/reports/default-kafka-log-consumer-build-runtime-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#kafka-log-consumer-build;0.1-SNAPSHOT test-internal produced in /home/syme/kafka-log-consumer/project/target/resolution-cache/reports/default-kafka-log-consumer-build-test-internal.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#kafka-log-consumer-build;0.1-SNAPSHOT plugin produced in /home/syme/kafka-log-consumer/project/target/resolution-cache/reports/default-kafka-log-consumer-build-plugin.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#kafka-log-consumer-build;0.1-SNAPSHOT sources produced in /home/syme/kafka-log-consumer/project/target/resolution-cache/reports/default-kafka-log-consumer-build-sources.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#kafka-log-consumer-build;0.1-SNAPSHOT docs produced in /home/syme/kafka-log-consumer/project/target/resolution-cache/reports/default-kafka-log-consumer-build-docs.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#kafka-log-consumer-build;0.1-SNAPSHOT pom produced in /home/syme/kafka-log-consumer/project/target/resolution-cache/reports/default-kafka-log-consumer-build-pom.xml[0m
+[0m[[0mdebug[0m] [0m	report for default#kafka-log-consumer-build;0.1-SNAPSHOT scala-tool produced in /home/syme/kafka-log-consumer/project/target/resolution-cache/reports/default-kafka-log-consumer-build-scala-tool.xml[0m
+[0m[[0mdebug[0m] [0m	resolve done (10421ms resolve - 1607ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m

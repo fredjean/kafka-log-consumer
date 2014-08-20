@@ -29,9 +29,10 @@ case class LogTopicConsumer(topic: String,
 	def read(write: (Array[Byte]) => Unit) = {
 		for(messageAndTopic <- stream) {
 			write(messageAndTopic.message)
+		println("We got a message")	
 		}
+		println("We stopped getting messages.")
 	}
-	
 
 	def close() {
 		consumer.shutdown()

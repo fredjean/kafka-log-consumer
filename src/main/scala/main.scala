@@ -1,29 +1,46 @@
-object Main extends App {
-	val logTopicConsumer = kafka.LogTopicConsumer(topic = "log-shuttle",groupId = "log-reader")
+import scala.concurrent.ops._
 
-	val loadAverages = scala.collection.mutable.Map[String, Float]()
-	val sourceMatcher = "source=(.+)".r 
-	val avgMatcher = "sample#load_avg_1m=(.+)".r
+object Main extends App {
+	val logTopicConsumer = kafka.LogTopicConsumer(topic = "log-shuttle",groupId = "log-reader", readFromStartOfStream = false
+)
+
+	val loadAverages = scala.collection.mutable.Map[String, Double]()
+	val sourceMatcher = " source=(.+?) ".r 
+	val avgMatcher = " sample#load_avg_1m=(.+?) ".r
 	
 	def writer(binaryMessage: Array[Byte]): Unit = {
-		val message = new String(binaryMessage).split(" ")
-		if (message.length > 10) {
-		if (message(5) == "dynoload") {
-			val source = message(7) match {
-				case sourceMatcher(src) => src
-				case _ => println(message(7))
+		val message = new String(binaryMessage)
+		if (message.contains("dynoload")) {
+			val sourceMatchData = sourceMatcher.findAllIn(message).matchData
+			var source = ""
+			if (sourceMatchData.hasNext) {
+				source = sourceMatchData.toList(0).group(1)
 			}
 			
-			val a1mAverage = message(9) match {
-				case avgMatcher(avg) => avg.toFloat
-				case _ => println(message(9))
-				
+			val avgMatchData = avgMatcher.findAllIn(message).matchData
+			var a1mAverage = 0.0
+			if (avgMatchData.hasNext) {
+				a1mAverage = avgMatchData.toList(0).group(1).toDouble
+println(a1mAverage)
 			}
-			
+
+			loadAverages(source) = a1mAverage
 		}
 	}
-}
 
+	spawn {
+		try {
+			logTopicConsumer.read(writer)
+println("We are done...")
+		} catch {
+			case e:Exception => println("Something is odd..." + e)
+		}
 
-	logTopicConsumer.read(writer)
+	}
+
+	while(true) {
+		Thread.sleep(1000)
+		println(loadAverages)
+	}
+
 }
