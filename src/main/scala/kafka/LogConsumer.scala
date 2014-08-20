@@ -1,57 +1,39 @@
 package kafka
 
-import java.util.{Collections,Properties, UUID}
-import kafka.common._
-import kafka.javaapi._
-import kafka.javaapi.consumer.SimpleConsumer
-import scala.collection._
+import java.util.Properties
+import kafka.serializer._
+import kafka.utils._
+import kafka.message._
+import kafka.consumer._
+import kafka.utils.Logging
 import scala.collection.JavaConverters._
 
-case class LogConsumer(token: String) {
-  var replicaBrokers = List[String]()
+case class LogTopicConsumer(topic: String,
+	groupId: String,
+	zookeeperConnect: String = "localhost:2181",
+	readFromStartOfStream: Boolean = true
+) extends Logging {
+	val props = new Properties()
+	props.put("group.id", groupId)
+	props.put("zookeeper.connect", zookeeperConnect)
+	props.put("auto.offset.reset", if (readFromStartOfStream) "smallest" else "largest")
 
-  private def findLeader(seedBrokers: List[String], port: Int, topic: String, partition: Int): PartitionMetadata = {
-    var returnMetadata: PartitionMetadata = null
+	val config = new ConsumerConfig(props)
+	val consumer = Consumer.create(config)
 
-    for(broker <- seedBrokers) {
-      val consumer = new SimpleConsumer(broker, port, 100000, 64 * 1024, "leaderLookup")
-      val topics = Collections.singletonList(topic)
+	val filterSpec = new Whitelist(topic)
 
-      val req = new TopicMetadataRequest(topics);
-      val resp = consumer.send(req)
-      
-      val metaData = resp.topicsMetadata
+	val streams = consumer.createMessageStreamsByFilter(filterSpec, 1, new DefaultDecoder(), new DefaultDecoder())
+	val stream = streams(0)
 
-      for (item <- metaData.asScala) {
-        returnMetadata = item.partitionsMetadata.asScala.find( part => part.partitionId == partition).get
-      }
+	def read(write: (Array[Byte]) => Unit) = {
+		for(messageAndTopic <- stream) {
+			write(messageAndTopic.message)
+		}
+	}
+	
 
-      if (consumer != null) { consumer.close() }
-
-      if (returnMetadata != null) {
-        for (replica <- returnMetadata.replicas.asScala) {
-          replicaBrokers = replicaBrokers :+ replica.host
-        }
-      }
-    }
-
-    returnMetadata
-  }
-}
-
-object LogConsumer {
-  def getLastOffset(consumer: SimpleConsumer, topic: String, partition:Int, whichTime: Long, clientName: String): Long = {
-    val topicAndPartition = new TopicAndPartition(topic, partition)
-    val requestInfo = Map[TopicAndPartition, PartitionOffsetRequestInfo]()
-    val request = new kafka.javaapi.OffsetRequest(requestInfo, kafka.api.OffsetRequest.CurrentVersion, clientName)
-    val response = consumer.getOffsetsBefore(request)
-
-    if (response.hasError) {
-      // log failure...
-      return 0
-    }
-
-    val offsets = response.offsets(topic,partition)
-    return offsets(0)
-  }
+	def close() {
+		consumer.shutdown()
+	}
 }
